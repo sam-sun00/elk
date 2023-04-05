@@ -9,7 +9,7 @@ definePageMeta({
 
 const { t } = useI18n()
 
-useHeadFixed({
+useHead({
   title: () => `${t('settings.profile.appearance.title')} | ${t('nav.settings')}`,
 })
 
@@ -75,7 +75,7 @@ const { submit, submitting } = submitter(async ({ dirtyFields }) => {
   reset()
 })
 
-const refreshInfo = async () => {
+async function refreshInfo() {
   if (!currentUser.value)
     return
   // Keep the information to be edited up to date
